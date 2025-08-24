@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "D93CDCEF-9D52-48D1-91F8-81A6E80179D8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "DevColorExtraction",
+          "name" : "DevColorExtraction"
+        }
+      ]
+    },
+    "defaultTestExecutionTimeAllowance" : 60,
+    "performanceAntipatternCheckerEnabled" : true,
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "DevColorExtractionTests",
+        "name" : "DevColorExtractionTests"
+      }
+    }
+  ],
+  "version" : 1
+}
