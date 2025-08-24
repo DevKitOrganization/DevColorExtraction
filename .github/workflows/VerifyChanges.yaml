@@ -34,15 +34,12 @@ jobs:
             xcode_destination: "platform=macOS,arch=arm64"
           - platform: tvOS
             xcode_destination: "platform=tvOS Simulator,name=Apple TV 4K (3rd generation) (at 1080p)"
-          - platform: watchOS
-            xcode_destination: "platform=watchOS Simulator,name=Apple Watch SE (40mm) (2nd generation)"
     env:
       DEV_BUILDS: DevBuilds/Sources
       OTHER_XCODE_FLAGS: ${{ matrix.other_xcode_flags }}
       XCCOV_PRETTY_VERSION: 1.2.0
       XCODE_SCHEME: DevColorExtraction
       XCODE_DESTINATION: ${{ matrix.xcode_destination }}
-      XCODE_TEST_PLAN: AllTests
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -84,7 +81,7 @@ jobs:
       - name: Log Code Coverage
         if: github.event_name != 'push'
         run: |
-          xcrun xccov view --report .build/DevColorExtraction-Package_test.xcresult --json \
+          xcrun xccov view --report .build/DevColorExtraction_test.xcresult --json \
               | ./xccovPretty --github-comment \
               > .build/xccovPretty-${{ matrix.platform }}.output
       - name: Upload Logs

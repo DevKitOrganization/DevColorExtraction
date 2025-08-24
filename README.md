@@ -2,7 +2,7 @@
 
 DevColorExtraction is a Swift package that extracts the most common colors from images using
 k-means clustering. It provides efficient color analysis with support for edge-based extraction and
-is fully documented and tested. It supports iOS 18+, macOS 15+, tvOS 18+, and watchOS 11+.
+is fully documented and tested. It supports iOS 18+, macOS 15+, and tvOS 18+.
 
 View our [changelog](CHANGELOG.md) to see what’s new.
 
