@@ -2,6 +2,11 @@
 
 import PackageDescription
 
+let swiftSettings: [SwiftSetting] = [
+    .enableUpcomingFeature("ExistentialAny"),
+    .enableUpcomingFeature("MemberImportVisibility"),
+]
+
 let package = Package(
     name: "DevColorExtraction",
     platforms: [
@@ -20,7 +25,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DevColorExtraction"
+            name: "DevColorExtraction",
+            swiftSettings: swiftSettings
         ),
         .testTarget(
             name: "DevColorExtractionTests",
@@ -30,7 +36,8 @@ let package = Package(
             ],
             resources: [
                 .process("Resources")
-            ]
+            ],
+            swiftSettings: swiftSettings
         ),
     ]
 )
