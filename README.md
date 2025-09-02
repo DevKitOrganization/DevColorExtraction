@@ -9,7 +9,7 @@ View our [changelog](CHANGELOG.md) to see what’s new.
 
 ## Features
 
-  - Extract the most common colors from `CGImage` using Core Image's k-means clustering
+  - Extract the most common colors from `CGImage` using Core Image’s k-means clustering
   - Support for edge-based color extraction (top, left, bottom, right edges)
   - Configurable number of colors and clustering passes
   - Results include both colors and their relative weights
