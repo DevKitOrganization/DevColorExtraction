@@ -22,7 +22,7 @@ extension CGImage {
     public func mostCommonColors(
         count: Int,
         passes: Int = 5,
-        edges: EdgeSet = .none
+        edges: EdgeSet = .none,
     ) -> [(color: CGColor, weight: CGFloat)]? {
         // Create a CIImage from which to extract the most common colors
         let ciImage: CIImage
@@ -128,7 +128,7 @@ extension CGContext {
             bitsPerComponent: 8,
             bytesPerRow: width * 4,
             space: CGColorSpace(name: CGColorSpace.sRGB)!,
-            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue,
         )
     }
 }
@@ -148,7 +148,7 @@ extension CIImage {
     fileprivate func mostCommonColors(
         count: Int,
         extent: CGRect,
-        passes: Int
+        passes: Int,
     ) -> [(color: CGColor, weight: CGFloat)]? {
         // Run the k-means filter.
         let filter = CIFilter.kMeans()
@@ -182,7 +182,7 @@ extension CIImage {
         let bitmapSize = count * 4
         let bitmap = UnsafeMutableRawPointer.allocate(
             byteCount: bitmapSize,
-            alignment: MemoryLayout<UInt8>.alignment
+            alignment: MemoryLayout<UInt8>.alignment,
         )
         defer { bitmap.deallocate() }
 
@@ -194,7 +194,7 @@ extension CIImage {
             rowBytes: bitmapSize,
             bounds: CGRect(x: 0, y: 0, width: count, height: 1),
             format: .RGBA8,
-            colorSpace: CGColorSpace(name: CGColorSpace.sRGB)
+            colorSpace: CGColorSpace(name: CGColorSpace.sRGB),
         )
 
         // Extract the RGBA values, with weight corresponding to the alpha value.
@@ -205,9 +205,9 @@ extension CIImage {
                     srgbRed: CGFloat(rgbaBuffer[4 * i + 0]) / 255.0,
                     green: CGFloat(rgbaBuffer[4 * i + 1]) / 255.0,
                     blue: CGFloat(rgbaBuffer[4 * i + 2]) / 255.0,
-                    alpha: 1.0
+                    alpha: 1.0,
                 ),
-                weight: CGFloat(rgbaBuffer[4 * i + 3]) / 255.0
+                weight: CGFloat(rgbaBuffer[4 * i + 3]) / 255.0,
             )
         }
     }
