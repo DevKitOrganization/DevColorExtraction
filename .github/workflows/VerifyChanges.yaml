@@ -7,6 +7,9 @@ on:
   push:
     branches: ["main"]
 
+env:
+  XCODE_VERSION: 26.0.1
+
 jobs:
   lint:
     name: Lint
@@ -14,12 +17,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Select Xcode 26.0.0
-        run: |
-          sudo xcode-select -s /Applications/Xcode_26.0.0.app
+      - name: Select Xcode ${{ env.XCODE_VERSION }}
+        run: sudo xcode-select -s /Applications/Xcode_${{ env.XCODE_VERSION }}.app
       - name: Lint
-        run: |
-          Scripts/lint
+        run: Scripts/lint
   build-and-test:
     name: Build and Test (${{ matrix.platform }})
     needs: lint
@@ -68,9 +69,8 @@ jobs:
           sourcepackages-directory: .build/DerivedData/SourcePackages
           swiftpm-package-resolved-file: Package.resolved
           verbose: true
-      - name: Select Xcode 26.0
-        run: |
-          sudo xcode-select -s /Applications/Xcode_26.0.0.app
+      - name: Select Xcode ${{ env.XCODE_VERSION }}
+        run: sudo xcode-select -s /Applications/Xcode_${{ env.XCODE_VERSION }}.app
       - name: Build for Testing
         run: |
           "$DEV_BUILDS"/build_and_test.sh --action build-for-testing

@@ -126,7 +126,7 @@ struct MostCommonColorsTests {
         expectEqualColors(
             result[0].color,
             CGColor(srgbRed: red, green: green, blue: blue, alpha: 1.0),
-            tolerance: 0.15
+            tolerance: 0.15,
         )
     }
 
@@ -359,7 +359,7 @@ struct MostCommonColorsTests {
         fileID: String = #fileID,
         filePath: String = #filePath,
         line: Int = #line,
-        column: Int = #column
+        column: Int = #column,
     ) {
         let sourceLocation = SourceLocation(fileID: fileID, filePath: filePath, line: line, column: column)
 
@@ -375,7 +375,7 @@ struct MostCommonColorsTests {
             #expect(
                 actualComponent.isApproximatelyEqual(to: expectedComponent, absoluteTolerance: tolerance),
                 "Color component \(actualComponent) not within tolerance \(tolerance) of \(expectedComponent)",
-                sourceLocation: sourceLocation
+                sourceLocation: sourceLocation,
             )
         }
     }
