@@ -1,7 +1,7 @@
 # Dependency Injection
 
-This document outlines the dependency injection patterns and conventions that I like to use in my
-Swift code.
+This document outlines the dependency injection patterns and conventions used throughout this
+project.
 
 After reading this doc, take a look at the [Test Mocks guide](TestMocks.md) for specific guidance
 about how to write mocks.
