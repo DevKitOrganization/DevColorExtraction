@@ -1,10 +1,12 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.4
 
 import PackageDescription
 
 let swiftSettings: [SwiftSetting] = [
     .enableUpcomingFeature("ExistentialAny"),
+    .enableUpcomingFeature("ImmutableWeakCaptures"),
     .enableUpcomingFeature("MemberImportVisibility"),
+    .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
 ]
 
 let package = Package(
@@ -17,7 +19,7 @@ let package = Package(
     products: [
         .library(
             name: "DevColorExtraction",
-            targets: ["DevColorExtraction"]
+            targets: ["DevColorExtraction"],
         )
     ],
     dependencies: [
@@ -26,7 +28,7 @@ let package = Package(
     targets: [
         .target(
             name: "DevColorExtraction",
-            swiftSettings: swiftSettings
+            swiftSettings: swiftSettings,
         ),
         .testTarget(
             name: "DevColorExtractionTests",
@@ -37,7 +39,7 @@ let package = Package(
             resources: [
                 .process("Resources")
             ],
-            swiftSettings: swiftSettings
+            swiftSettings: swiftSettings,
         ),
-    ]
+    ],
 )
