@@ -32,9 +32,9 @@ View our [changelog](CHANGELOG.md) to see what’s new.
 
 ## Development Requirements
 
-DevColorExtraction requires a Swift 6.2+ toolchain to build. We only test on Apple platforms. We follow
-the [Swift API Design Guidelines][SwiftAPIDesignGuidelines]. We take pride in the fact that our
-public interfaces are fully documented and tested. We aim for overall test coverage over 97%.
+DevColorExtraction requires a Swift 6.4+ toolchain to build. We only test on Apple platforms. We
+follow the [Swift API Design Guidelines][SwiftAPIDesignGuidelines]. We take pride in the fact that
+our public interfaces are fully documented and tested. We aim for overall test coverage over 97%.
 
 [SwiftAPIDesignGuidelines]: https://swift.org/documentation/api-design-guidelines/
 
@@ -42,16 +42,16 @@ public interfaces are fully documented and tested. We aim for overall test cover
 
 To set up the development environment:
 
-  1. Run `Scripts/install-git-hooks` to install git hooks that automatically check code
-     formatting before pushing.
-  2. Use `Scripts/lint` to manually check code formatting at any time.
+  1. Run `Tools/install-git-hooks` to install a pre-push hook that runs `Tools/lint`.
+  2. Use `Tools/lint` to check Swift and Markdown formatting at any time.
+  3. Use `Tools/format` to fix formatting issues.
 
 
 ## Continuous Integration
 
 DevColorExtraction uses GitHub Actions for continuous integration. The CI pipeline:
 
-  - **Linting**: Automatically checks code formatting on all pull requests using `swift format`
+  - **Linting**: Checks Swift and Markdown formatting on all pull requests using `Tools/lint`
   - **Testing**: Runs tests on iOS, macOS, and tvOS
   - **Coverage**: Generates code coverage reports using xccovPretty
 
