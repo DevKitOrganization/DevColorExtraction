@@ -42,16 +42,16 @@ our public interfaces are fully documented and tested. We aim for overall test c
 
 To set up the development environment:
 
-  1. Run `Scripts/install-git-hooks` to install git hooks that automatically check code
-     formatting before pushing.
-  2. Use `Scripts/lint` to manually check code formatting at any time.
+  1. Run `Tools/install-git-hooks` to install a pre-push hook that runs `Tools/lint`.
+  2. Use `Tools/lint` to check Swift and Markdown formatting at any time.
+  3. Use `Tools/format` to fix formatting issues.
 
 
 ## Continuous Integration
 
 DevColorExtraction uses GitHub Actions for continuous integration. The CI pipeline:
 
-  - **Linting**: Automatically checks code formatting on all pull requests using `swift format`
+  - **Linting**: Checks Swift and Markdown formatting on all pull requests using `Tools/lint`
   - **Testing**: Runs tests on iOS, macOS, and tvOS
   - **Coverage**: Generates code coverage reports using xccovPretty
 
